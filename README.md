@@ -9,10 +9,6 @@ communicate with one another.
 
 `test-service` --> `division-service` --> `subtraction-service` --> `addition-service`
 
-
-
-
-
 # Setup
 1. `npm install -g architect-cli`
 
