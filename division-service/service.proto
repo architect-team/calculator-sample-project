@@ -9,6 +9,6 @@ message MathResponse {
     int32 output = 1;
 }
 
-service Snappi {
+service Architect {
     rpc Divide (MathRequest) returns (MathResponse);
 }
