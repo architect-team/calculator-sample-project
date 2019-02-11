@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package subtraction_service;
+
 message SubtractRequest {
     int32 first = 1;
     int32 second = 2;
