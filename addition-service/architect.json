@@ -14,5 +14,9 @@
   "dependencies": {},
   "proto": "service.proto",
   "main": "index.js",
-  "language": "node"
+  "language": "node",
+  "image": {
+    "repository": "615038130497.dkr.ecr.us-east-1.amazonaws.com/architect-addition-service",
+    "private": true
+  }
 }
