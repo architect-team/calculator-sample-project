@@ -1,0 +1,20 @@
+{
+    "name": "subtraction-service",
+    "version": "0.1.0",
+    "description": "Service to do the subtraction arithmetic operation",
+    "keywords": [
+      "architect",
+      "math",
+      "example"
+    ],
+    "author": [
+      "Ryan Cahill"
+    ],
+    "license": "ISC",
+    "dependencies": {
+      "addition-service": "file:../addition-service/"
+    },
+    "proto": "SubtractionService.proto",
+    "main": "architect.jar",
+    "language": "java"
+  }
