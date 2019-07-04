@@ -14,7 +14,7 @@
     "dependencies": {
       "addition-service": "file:../addition-service/"
     },
-    "proto": "SubtractionService.proto",
+    "proto": "subtraction-service.proto",
     "main": "architect.jar",
     "language": "java"
   }
