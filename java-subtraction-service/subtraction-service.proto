@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "architect_subtraction_service";
+option java_outer_classname = "SubtractionServiceProto";
+option objc_class_prefix = "SS";
+
+package subtraction_service;
+
+service Architect {
+  rpc Subtract (SubtractRequest) returns (SubtractResponse);
+}
+
+message SubtractRequest {
+  string first = 1;
+  string second = 2;
+}
+
+message SubtractResponse {
+  string difference = 1;
+}
