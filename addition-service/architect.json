@@ -18,5 +18,11 @@
       "./service.proto"
     ]
   },
-  "dependencies": {}
+  "dependencies": {},
+  "datastores": {
+    "primary": {
+      "type": "postgres",
+      "version": "^8.0.0"
+    }
+  }
 }
