@@ -15,16 +15,9 @@ const _divide_values = (result, value, magnitude, callback) => {
     return callback(null, divide_response);
   }
 
-  let subtract_request = new subtraction_service.definitions.SubtractRequest();
-  subtract_request.setFirst(value);
-  subtract_request.setSecond(magnitude);
-  subtraction_service.client.subtract(
-    subtract_request,
-    (error, response) => {
-      if (error) return callback(error);
-      return _divide_values(result + 1, response.getOutput(), magnitude, callback);
-    }
-  );
+  subtraction_service.client.get(`/subtract?first=${value}&second=${magnitude}`)
+    .catch(error => callback(error))
+    .then(response => _divide_values(result + 1, response.data.result, magnitude, callback));
 };
 
 const divide = (call, callback) => {

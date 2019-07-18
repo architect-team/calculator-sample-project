@@ -14,6 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "grpc": "^1.22.2",
-    "architect-sdk": "../../sdks/node-sdk"
+    "architect-sdk": "../../../../sdks/node-sdk"
   }
 }
