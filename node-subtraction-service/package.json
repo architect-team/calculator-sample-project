@@ -1,0 +1,19 @@
+{
+  "name": "architect-subtraction-service",
+  "version": "0.2.0",
+  "description": "Sample subtraction service to showcase the Architect platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "architect",
+    "grpc"
+  ],
+  "author": "Architect.io",
+  "license": "ISC",
+  "dependencies": {
+    "grpc": "^1.22.2",
+    "architect-sdk": "../../sdks/node-sdk"
+  }
+}

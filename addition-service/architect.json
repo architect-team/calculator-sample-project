@@ -1,22 +1,22 @@
 {
   "name": "addition-service",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Addition service",
   "keywords": [
     "architect",
     "math",
-    "example"
+    "grpc"
   ],
   "author": [
     "David Thor"
   ],
   "license": "ISC",
-  "dependencies": {},
-  "proto": "service.proto",
-  "main": "index.js",
-  "language": "node",
-  "image": {
-    "repository": "615038130497.dkr.ecr.us-east-1.amazonaws.com/architect-addition-service",
-    "private": true
-  }
+  "start": "npm start",
+  "interface": {
+    "type": "grpc",
+    "definitions": [
+      "./service.proto"
+    ]
+  },
+  "dependencies": {}
 }

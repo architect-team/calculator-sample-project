@@ -1,20 +1,24 @@
 {
   "name": "subtraction-service",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Service to do the subtraction arithmetic operation",
   "keywords": [
     "architect",
     "math",
-    "example"
+    "grpc"
   ],
   "author": [
     "David Thor"
   ],
   "license": "ISC",
+  "start": "npm start",
+  "interface": {
+    "type": "grpc",
+    "definitions": [
+      "./service.proto"
+    ]
+  },
   "dependencies": {
     "addition-service": "file:../addition-service/"
-  },
-  "proto": "service.proto",
-  "main": "index.js",
-  "language": "node"
+  }
 }

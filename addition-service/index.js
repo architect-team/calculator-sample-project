@@ -1,19 +1,20 @@
 'use strict';
 
-class Architect {
-  constructor(addition_service) {
-    this.addition_service = addition_service;
-  }
+const grpc = require('grpc');
+const { AddResponse } = require('./architect_services/addition_service/service_pb');
+const { ArchitectService } = require('./architect_services/addition_service/service_grpc_pb');
 
-  add(call, callback) {
-    const {AddResponse} = this.addition_service.messages;
-    const add_request = call.request;
-    const response = new AddResponse();
-    response.setOutput(add_request.getFirst() + add_request.getSecond());
-    callback(null, response);
-  }
-}
+const add = (call, callback) => {
+  const add_request = call.request;
+  const response = new AddResponse();
+  response.setOutput(add_request.getFirst() + add_request.getSecond());
+  callback(null, response);
+};
 
-Architect.dependencies = ['addition-service'];
-
-module.exports = Architect;
+// START SERVER
+const { HOST, PORT } = process.env;
+const server = new grpc.Server();
+server.addService(ArchitectService, { add });
+server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
+server.start();
+console.log(`Listening at ${HOST}:${PORT}`);
