@@ -11,7 +11,7 @@
     "David Thor"
   ],
   "license": "ISC",
-  "start": "npm start",
+  "language": "node",
   "interface": {
     "type": "grpc",
     "definitions": [

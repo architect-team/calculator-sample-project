@@ -15,6 +15,7 @@
   "dependencies": {
     "architect-sdk": "../../sdks/node-sdk",
     "grpc": "^1.22.2",
+    "google-protobuf": "^3.9.0",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.10.1"
