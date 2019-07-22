@@ -14,7 +14,7 @@
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
-    "architect-sdk": "./sdks/node-sdk",
+    "architect-sdk": "https://github.com/architect-team/node-sdk",
     "grpc": "^1.22.2",
     "google-protobuf": "^3.9.0",
     "pg": "^7.11.0",
