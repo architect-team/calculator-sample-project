@@ -10,10 +10,12 @@
     "architect",
     "grpc"
   ],
+  "language": "node",
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
-    "grpc": "^1.22.2",
-    "architect-sdk": "../../sdks/node-sdk"
+    "architect-sdk": "https://github.com/architect-team/node-sdk",
+    "google-protobuf": "^3.9.0",
+    "grpc": "^1.22.2"
   }
 }

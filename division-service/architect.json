@@ -11,6 +11,7 @@
     "David Thor"
   ],
   "license": "ISC",
+  "language": "node",
   "start": "npm start",
   "interface": {
     "type": "grpc",
@@ -19,6 +20,6 @@
     ]
   },
   "dependencies": {
-    "subtraction-service": "file:../node-subtraction-service/"
+    "subtraction-service": "file:../subtraction-services/node/rest/"
   }
 }

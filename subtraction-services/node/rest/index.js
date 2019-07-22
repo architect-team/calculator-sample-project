@@ -1,4 +1,3 @@
-const grpc = require('grpc');
 const architect = require('architect-sdk').default;
 const express = require("express");
 const bodyParser = require("body-parser");
