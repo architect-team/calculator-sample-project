@@ -3,7 +3,6 @@ const architect = require('architect-sdk').default;
 const express = require("express");
 const bodyParser = require("body-parser");
 
-architect.useGRPC(grpc);
 const addition_service = architect.service('addition-service');
 
 const app = express();
