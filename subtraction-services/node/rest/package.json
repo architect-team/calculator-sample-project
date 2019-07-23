@@ -13,7 +13,7 @@
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
-    "architect-sdk": "https://github.com/architect-team/node-sdk",
+    "architect-sdk": "architect-team/node-sdk",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "google-protobuf": "^3.9.0",

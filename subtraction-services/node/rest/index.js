@@ -13,7 +13,7 @@ app.get('/subtract', (req, res) => {
   let { first, second } = req.query;
   second *= -1;
 
-  const addition_request = new addition_service.definitions.AddRequest();
+  const addition_request = new addition_service.defs.AddRequest();
   addition_request.setFirst(first);
   addition_request.setSecond(second);
   addition_service.client.add(

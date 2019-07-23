@@ -2,10 +2,9 @@
 
 const grpc = require('grpc');
 const architect = require('architect-sdk').default;
-const { MathResponse } = require('./architect_services/division_service/service_pb');
-const { ArchitectService } = require('./architect_services/division_service/service_grpc_pb');
 
 const subtraction_service = architect.service('subtraction-service');
+const { MathResponse } = architect.current_service().defs;
 
 const _divide_values = (result, value, magnitude, callback) => {
   if (value <= 0) {
@@ -28,7 +27,7 @@ const divide = (call, callback) => {
 // START SERVER
 const { HOST, PORT } = process.env;
 const server = new grpc.Server();
-server.addService(ArchitectService, { divide });
+architect.current_service().addService(server, { divide });
 server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
 server.start();
 console.log(`Listening at ${HOST}:${PORT}`);

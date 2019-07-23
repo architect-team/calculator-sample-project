@@ -2,17 +2,16 @@
 
 const grpc = require('grpc');
 const architect = require('architect-sdk').default;
-const { SubtractionResponse } = require('./architect_services/subtraction_service/service_pb');
-const { ArchitectService } = require('./architect_services/subtraction_service/service_grpc_pb');
 
 const addition_service = architect.service('addition-service');
+const { SubtractionResponse } = architect.current_service().defs;
 
 const subtract = (call, callback) => {
   let first = call.request.getFirst();
   let second = call.request.getSecond();
   second *= -1;
 
-  const addition_request = new addition_service.definitions.AddRequest();
+  const addition_request = new addition_service.defs.AddRequest();
   addition_request.setFirst(first);
   addition_request.setSecond(second);
   addition_service.client.add(
@@ -32,7 +31,7 @@ const subtract = (call, callback) => {
 // START SERVER
 const { HOST, PORT } = process.env;
 const server = new grpc.Server();
-server.addService(ArchitectService, { subtract });
+architect.current_service().addService(server, { subtract });
 server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
 server.start();
 console.log(`Listening at ${HOST}:${PORT}`);
