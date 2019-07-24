@@ -1,7 +1,7 @@
 'use strict';
 
 const grpc = require('grpc');
-const architect = require('architect-sdk').default;
+const architect = require('@architect-io/sdk').default;
 
 const subtraction_service = architect.service('subtraction-service');
 const { MathResponse } = architect.current_service().defs;

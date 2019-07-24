@@ -1,4 +1,4 @@
-const architect = require('architect-sdk').default;
+const architect = require('@architect-io/sdk').default;
 const express = require("express");
 const bodyParser = require("body-parser");
 

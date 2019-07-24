@@ -2,7 +2,7 @@
 
 const grpc = require('grpc');
 const Sequelize = require('sequelize');
-const architect = require('architect-sdk').default;
+const architect = require('@architect-io/sdk').default;
 const initDatabaseModels = require('./db_models');
 
 // Setup DB client
