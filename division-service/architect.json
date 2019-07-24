@@ -12,7 +12,7 @@
   ],
   "license": "ISC",
   "language": "node",
-  "start": "npm start",
+  "debug": "npm run debug",
   "interface": {
     "type": "grpc",
     "definitions": [
@@ -20,6 +20,6 @@
     ]
   },
   "dependencies": {
-    "subtraction-service": "file:../subtraction-services/node/rest/"
+    "subtraction-service": "file:../subtraction-services/python/rest/"
   }
 }

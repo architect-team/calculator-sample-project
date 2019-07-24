@@ -1,5 +1,5 @@
 {
-  "name": "subtraction-service",
+  "name": "architect/subtraction-service",
   "version": "0.1.0",
   "description": "Service to do the subtraction arithmetic operation",
   "keywords": [

@@ -20,7 +20,6 @@ const _divide_values = (result, value, magnitude, callback) => {
 
 const divide = (call, callback) => {
   const math_request = call.request;
-  console.log(`${math_request.getFirst()} / ${math_request.getSecond()}`);
   return _divide_values(0, math_request.getFirst(), math_request.getSecond(), callback);
 };
 
