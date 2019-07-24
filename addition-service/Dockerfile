@@ -8,5 +8,5 @@ RUN apk update && apk upgrade && \
 COPY . .
 RUN npm install
 
-EXPOSE 8080
+EXPOSE $PORT
 CMD [ "npm", "start" ]

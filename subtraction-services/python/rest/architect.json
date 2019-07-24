@@ -12,17 +12,11 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "addition-service": "file:../../addition-service/"
+    "addition-service": "file:../../../addition-service/"
   },
   "language": "python",
   "interface": {
-    "type": "grpc",
-    "definitions": [
-      "./service.proto"
-    ]
+    "type": "rest"
   },
-  "image": {
-    "repository": "615038130497.dkr.ecr.us-east-1.amazonaws.com/architect-subtraction-service",
-    "private": true
-  }
+  "debug": "sh -c 'export FLASK_DEBUG=1; python3 -u src/main.py'"
 }
