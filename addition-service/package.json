@@ -1,10 +1,11 @@
 {
   "name": "architect-addition-example",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Sample service to test Architect's deployment platform",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon -L index.js"
   },
   "keywords": [
     "architect",
@@ -13,10 +14,14 @@
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
-    "architect-sdk": "../../sdks/node-sdk",
+    "@architect-io/sdk": "^0.1.0",
+    "google-protobuf": "^3.9.0",
     "grpc": "^1.22.2",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }

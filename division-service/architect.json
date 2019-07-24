@@ -1,5 +1,5 @@
 {
-  "name": "division-service",
+  "name": "architect/division-service",
   "version": "0.2.0",
   "description": "Example service performing the division operation",
   "keywords": [
@@ -11,7 +11,8 @@
     "David Thor"
   ],
   "license": "ISC",
-  "start": "npm start",
+  "language": "node",
+  "debug": "npm run debug",
   "interface": {
     "type": "grpc",
     "definitions": [
@@ -19,6 +20,6 @@
     ]
   },
   "dependencies": {
-    "subtraction-service": "file:../node-subtraction-service/"
+    "subtraction-service": "file:../subtraction-services/python/rest/"
   }
 }

@@ -4,16 +4,22 @@
   "description": "Sample service to showcase the Architect platform",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "debug": "nodemon -L index.js"
   },
   "keywords": [
     "architect",
     "grpc"
   ],
+  "language": "node",
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
-    "grpc": "^1.22.2",
-    "architect-sdk": "../../sdks/node-sdk"
+    "@architect-io/sdk": "^0.1.0",
+    "google-protobuf": "^3.9.0",
+    "grpc": "^1.22.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }

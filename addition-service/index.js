@@ -2,9 +2,7 @@
 
 const grpc = require('grpc');
 const Sequelize = require('sequelize');
-const architect = require('architect-sdk').default;
-const { AddResponse } = require('./architect_services/addition_service/service_pb');
-const { ArchitectService } = require('./architect_services/addition_service/service_grpc_pb');
+const architect = require('@architect-io/sdk').default;
 const initDatabaseModels = require('./db_models');
 
 // Setup DB client
@@ -31,6 +29,7 @@ const service_impl = {
       second: add_request.getSecond(),
       result: add_request.getFirst() + add_request.getSecond()
     }).then(record => {
+      const { AddResponse } = architect.current_service().defs;
       const response = new AddResponse();
       response.setOutput(record.result);
       callback(null, response);
@@ -42,7 +41,7 @@ const service_impl = {
 // START SERVER
 const { HOST, PORT } = process.env;
 const server = new grpc.Server();
-server.addService(ArchitectService, service_impl);
+architect.current_service().addService(server, service_impl);
 server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
 server.start();
 console.log(`Listening at ${HOST}:${PORT}`);

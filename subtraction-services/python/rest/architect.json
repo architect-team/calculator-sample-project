@@ -1,25 +1,22 @@
 {
-  "name": "subtraction-service",
-  "version": "0.2.0",
+  "name": "architect/subtraction-service",
+  "version": "0.1.0",
   "description": "Service to do the subtraction arithmetic operation",
   "keywords": [
     "architect",
     "math",
-    "grpc"
+    "example"
   ],
   "author": [
     "David Thor"
   ],
   "license": "ISC",
-  "language": "node",
-  "interface": {
-    "type": "grpc",
-    "definitions": [
-      "./service.proto"
-    ]
-  },
   "dependencies": {
     "addition-service": "file:../../../addition-service/"
   },
-  "debug": "npm run dev"
+  "language": "python",
+  "interface": {
+    "type": "rest"
+  },
+  "debug": "sh -c 'export FLASK_DEBUG=1; python3 -u src/main.py'"
 }

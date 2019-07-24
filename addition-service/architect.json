@@ -11,7 +11,7 @@
     "David Thor"
   ],
   "license": "ISC",
-  "start": "npm start",
+  "language": "node",
   "interface": {
     "type": "grpc",
     "definitions": [
@@ -24,5 +24,6 @@
       "type": "postgres",
       "version": "^8.0.0"
     }
-  }
+  },
+  "debug": "npm run dev"
 }

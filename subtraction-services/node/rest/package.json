@@ -4,7 +4,7 @@
   "description": "REST service to demo usage using the Architect platform",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [
     "architect",
@@ -13,9 +13,10 @@
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
+    "@architect-io/sdk": "^0.1.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "grpc": "^1.22.2",
-    "architect-sdk": "../../../../sdks/node-sdk"
+    "google-protobuf": "^3.9.0",
+    "grpc": "^1.22.2"
   }
 }

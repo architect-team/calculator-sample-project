@@ -1,9 +1,7 @@
-const grpc = require('grpc');
-const architect = require('architect-sdk').default;
+const architect = require('@architect-io/sdk').default;
 const express = require("express");
 const bodyParser = require("body-parser");
 
-architect.useGRPC(grpc);
 const addition_service = architect.service('addition-service');
 
 const app = express();
@@ -15,7 +13,7 @@ app.get('/subtract', (req, res) => {
   let { first, second } = req.query;
   second *= -1;
 
-  const addition_request = new addition_service.definitions.AddRequest();
+  const addition_request = new addition_service.defs.AddRequest();
   addition_request.setFirst(first);
   addition_request.setSecond(second);
   addition_service.client.add(
