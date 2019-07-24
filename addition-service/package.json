@@ -1,6 +1,6 @@
 {
   "name": "architect-addition-example",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Sample service to test Architect's deployment platform",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
-    "architect-sdk": "https://github.com/architect-team/node-sdk",
+    "architect-sdk": "architect-team/node-sdk",
     "grpc": "^1.22.2",
     "google-protobuf": "^3.9.0",
     "pg": "^7.11.0",

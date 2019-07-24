@@ -1,5 +1,5 @@
 {
-  "name": "division-service",
+  "name": "architect/division-service",
   "version": "0.2.0",
   "description": "Example service performing the division operation",
   "keywords": [
