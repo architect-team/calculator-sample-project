@@ -2,7 +2,7 @@ const architect = require('@architect-io/sdk').default;
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const addition_service = architect.service('addition-service');
+const addition_service = architect.service('architect/addition-service');
 
 const app = express();
 

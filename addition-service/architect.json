@@ -1,5 +1,5 @@
 {
-  "name": "addition-service",
+  "name": "architect/addition-service",
   "version": "0.2.0",
   "description": "Addition service",
   "keywords": [
@@ -22,7 +22,7 @@
   "datastores": {
     "primary": {
       "type": "postgres",
-      "version": "^8.0.0"
+      "version": "10"
     }
   },
   "debug": "npm run dev"
