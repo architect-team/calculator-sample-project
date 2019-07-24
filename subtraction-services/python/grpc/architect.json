@@ -1,25 +1,25 @@
 {
   "name": "subtraction-service",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Service to do the subtraction arithmetic operation",
   "keywords": [
     "architect",
     "math",
-    "grpc"
+    "example"
   ],
   "author": [
     "David Thor"
   ],
   "license": "ISC",
-  "language": "node",
+  "dependencies": {
+    "addition-service": "file:../../../addition-service/"
+  },
+  "language": "python",
   "interface": {
     "type": "grpc",
     "definitions": [
       "./service.proto"
     ]
   },
-  "dependencies": {
-    "addition-service": "file:../../../addition-service/"
-  },
-  "debug": "npm run dev"
+  "debug": "watchmedo auto-restart --recursive -- python3 src/main.py"
 }
