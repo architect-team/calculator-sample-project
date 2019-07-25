@@ -1,7 +1,7 @@
 {
-  "name": "architect/division-service",
+  "name": "architect/subtraction-service",
   "version": "0.2.0",
-  "description": "Example service performing the division operation",
+  "description": "Service to do the subtraction arithmetic operation",
   "keywords": [
     "architect",
     "math",
@@ -11,8 +11,7 @@
     "David Thor"
   ],
   "license": "ISC",
-  "language": "node",
-  "debug": "npm run debug",
+  "language": "java",
   "interface": {
     "type": "grpc",
     "definitions": [
@@ -20,6 +19,6 @@
     ]
   },
   "dependencies": {
-    "architect/subtraction-service": "file:../subtraction-services/python/rest/"
+    "architect/addition-service": "file:../../../addition-service/"
   }
 }
