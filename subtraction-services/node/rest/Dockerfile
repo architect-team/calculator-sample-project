@@ -5,8 +5,9 @@ WORKDIR /usr/src/app
 RUN apk update && apk upgrade && \
     apk add --no-cache bash git openssh
 
+COPY package*.json ./
+RUN npm install
 COPY . .
-RUN npm install && npm rebuild
 
-EXPOSE 8080
+EXPOSE $PORT
 CMD [ "npm", "start" ]
