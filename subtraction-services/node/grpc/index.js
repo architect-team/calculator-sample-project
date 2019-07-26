@@ -1,9 +1,9 @@
 'use strict';
 
 const grpc = require('grpc');
-const architect = require('architect-sdk').default;
+const architect = require('@architect-io/sdk').default;
 
-const addition_service = architect.service('addition-service');
+const addition_service = architect.service('architect/addition-service');
 const { SubtractionResponse } = architect.current_service().defs;
 
 const subtract = (call, callback) => {

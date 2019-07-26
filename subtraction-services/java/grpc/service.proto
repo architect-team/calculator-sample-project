@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package io.architect.examples.subtraction_service;
+
+message SubtractRequest {
+    int32 first = 1;
+    int32 second = 2;
+}
+
+message SubtractionResponse {
+    int32 output = 1;
+}
+
+service Architect {
+    rpc Subtract (SubtractRequest) returns (SubtractionResponse);
+}

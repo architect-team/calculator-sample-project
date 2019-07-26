@@ -11,7 +11,7 @@ class SubtractionServicer(architect.current_service().Servicer):
     def Subtract(self, request, context):
         first = request.first
         second = request.second * -1
-        addition_service = architect.service('addition-service')
+        addition_service = architect.service('architect/addition-service')
         add_request = addition_service.defs.AddRequest(first=first, second=second)
         add_response = addition_service.client.Add(add_request)
         return architect.current_service().defs.SubtractionResponse(output=add_response.output)

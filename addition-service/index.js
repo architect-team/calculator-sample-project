@@ -2,16 +2,21 @@
 
 const grpc = require('grpc');
 const Sequelize = require('sequelize');
-const architect = require('architect-sdk').default;
+const architect = require('@architect-io/sdk').default;
 const initDatabaseModels = require('./db_models');
 
 // Setup DB client
 const primary_db_config = architect.datastore('primary');
-const primary_db_client = new Sequelize('addition_service', primary_db_config.username, primary_db_config.password, {
-  host: primary_db_config.host,
-  port: primary_db_config.port,
-  dialect: 'postgres'
-});
+const primary_db_client = new Sequelize(
+  primary_db_config.name,
+  primary_db_config.username,
+  primary_db_config.password,
+  {
+    host: primary_db_config.host,
+    port: primary_db_config.port,
+    dialect: 'postgres'
+  }
+);
 
 // Setup DB models
 const { RequestLog } = initDatabaseModels(primary_db_client);
