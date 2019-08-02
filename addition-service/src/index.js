@@ -17,7 +17,6 @@ const primary_db_client = new Sequelize(
     dialect: 'postgres'
   }
 );
-console.log(primary_db_config)
 
 // Setup DB models
 const { RequestLog } = initDatabaseModels(primary_db_client);
