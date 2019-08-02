@@ -1,7 +1,7 @@
 {
-  "name": "architect-subtraction-service",
+  "name": "architect-test-service",
   "version": "0.2.0",
-  "description": "REST service to demo usage using the Architect platform",
+  "description": "Sample test service to showcase the Architect platform",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -9,14 +9,12 @@
   },
   "keywords": [
     "architect",
-    "rest"
+    "grpc"
   ],
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
     "@architect-io/sdk": "^0.2.0",
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
     "google-protobuf": "^3.9.0",
     "grpc": "^1.22.2"
   },

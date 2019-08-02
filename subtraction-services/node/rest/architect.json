@@ -1,5 +1,5 @@
 {
-  "name": "subtraction-service",
+  "name": "architect/subtraction-service",
   "version": "0.2.0",
   "description": "Service to do the subtraction arithmetic operation",
   "keywords": [
@@ -13,10 +13,11 @@
   "license": "ISC",
   "start": "npm start",
   "language": "node",
-  "interface": {
+  "api": {
     "type": "rest"
   },
   "dependencies": {
     "architect/addition-service": "file:../../../addition-service/"
-  }
+  },
+  "debug": "npm run dev"
 }

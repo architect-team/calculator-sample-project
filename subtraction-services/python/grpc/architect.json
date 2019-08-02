@@ -15,7 +15,7 @@
     "architect/addition-service": "file:../../../addition-service/"
   },
   "language": "python",
-  "interface": {
+  "api": {
     "type": "grpc",
     "definitions": [
       "./service.proto"

@@ -12,7 +12,7 @@
   ],
   "license": "ISC",
   "language": "java",
-  "interface": {
+  "api": {
     "type": "grpc",
     "definitions": [
       "./service.proto"

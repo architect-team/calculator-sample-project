@@ -2,10 +2,10 @@
   "name": "architect-division-service",
   "version": "0.2.0",
   "description": "Sample service to showcase the Architect platform",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
-    "debug": "nodemon -L index.js"
+    "start": "node src/index.js",
+    "debug": "nodemon -L src/index.js"
   },
   "keywords": [
     "architect",
@@ -15,7 +15,7 @@
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
-    "@architect-io/sdk": "^0.1.0",
+    "@architect-io/sdk": "^0.2.0",
     "google-protobuf": "^3.9.0",
     "grpc": "^1.22.2"
   },

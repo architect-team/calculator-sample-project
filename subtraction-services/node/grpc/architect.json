@@ -12,7 +12,7 @@
   ],
   "license": "ISC",
   "language": "node",
-  "interface": {
+  "api": {
     "type": "grpc",
     "definitions": [
       "./service.proto"

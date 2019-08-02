@@ -13,7 +13,7 @@
   "license": "ISC",
   "language": "node",
   "debug": "npm run debug",
-  "interface": {
+  "api": {
     "type": "grpc",
     "definitions": [
       "./service.proto"

@@ -13,11 +13,6 @@
   "dependencies": {
     "division-service": "file:../division-service/"
   },
-  "proto": null,
-  "main": "index.js",
-  "language": "node",
-  "image": {
-    "repository": "615038130497.dkr.ecr.us-east-1.amazonaws.com/architect-test-service",
-    "private": true
-  }
+  "api": null,
+  "language": "node"
 }
