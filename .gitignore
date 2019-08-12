@@ -3,6 +3,4 @@ node_modules
 architect_services
 .DS_Store
 *.pyc
-*.tfstate*
-**/.terraform/
 __pycache__
