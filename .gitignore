@@ -1,6 +1,5 @@
 .idea
 node_modules
-architect_services
 .DS_Store
 *.pyc
 __pycache__
