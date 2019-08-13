@@ -1,0 +1,22 @@
+{
+  "name": "architect/subtraction-service",
+  "version": "0.1.0",
+  "description": "Service to do the subtraction arithmetic operation",
+  "keywords": [
+    "architect",
+    "math",
+    "example"
+  ],
+  "author": [
+    "David Thor"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "architect/addition-service": "file:../../../addition-service/"
+  },
+  "language": "java",
+  "api": {
+    "type": "rest"
+  },
+  "debug": "sh -c './gradlew installDist && ./build/install/architect_subtraction_service/bin/architect_subtraction_service'"
+}
