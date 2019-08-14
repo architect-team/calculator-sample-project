@@ -19,8 +19,6 @@ WORKDIR /usr/src/app
 
 COPY --from=build_container /usr/src/app/build/install/architect_subtraction_service/ /usr/src/app/
 
-RUN ls /usr/src/app
-
 EXPOSE $PORT
 
 CMD ["/usr/src/app/bin/architect_subtraction_service"]
