@@ -12,7 +12,7 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "architect/addition-service": "file:../../../addition-service/"
+    "architect/addition-service": "file:../../../addition-service/rest/"
   },
   "language": "java",
   "api": {

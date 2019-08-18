@@ -19,7 +19,7 @@
     ]
   },
   "dependencies": {
-    "architect/addition-service": "file:../../../addition-service/"
+    "architect/addition-service": "file:../../../addition-service/grpc/"
   },
   "debug": "npm run dev"
 }

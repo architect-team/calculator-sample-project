@@ -2,7 +2,12 @@ package architect_subtraction_service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.util.HashMap;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 
 import org.apache.http.HttpResponse;
 
@@ -20,25 +25,22 @@ public class SubtractionController {
     public SubtractionResult subtract(@RequestParam(value="first") String first, @RequestParam(value="second") String second) {
         Integer secondInt = Integer.parseInt(second) * -1;
 
-        ArchitectService additionService = Architect.sdk().service("addition_service");
+        ArchitectService additionService = Architect.sdk().service("architect/addition-service");
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("first", first);
         params.put("second", secondInt.toString());
         
-        StringBuilder stringBuilder = new StringBuilder();
+        JsonObject responseObject = null;
         try {
-            HttpResponse response = additionService.client().get("/add", params);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()), 65728);
-            String line = null;
-
-            while ((line = reader.readLine()) != null) {
-                stringBuilder.append(line);
-            }
+            HttpResponse response = additionService.client().get("/add/", params);
+            JsonReader reader = Json.createReader(new InputStreamReader(response.getEntity().getContent()));
+            responseObject = reader.readObject();
+            reader.close();
         } catch(Exception ex) {
             ex.printStackTrace();
             System.err.println("Addition get request failed");
         }
-
-        return new SubtractionResult(Integer.parseInt(stringBuilder.toString()));
+        
+        return new SubtractionResult(responseObject.getInt("result"));
     }
 }
