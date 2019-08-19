@@ -18,5 +18,25 @@
   "api": {
     "type": "rest"
   },
+  "datastores": {
+    "primary": {
+      "image": "postgres:10",
+      "port": 5432,
+      "parameters": {
+        "POSTGRES_USER": {
+          "alias": "username",
+          "default": "postgres"
+        },
+        "POSTGRES_PASS": {
+          "alias": "password",
+          "default": "architect"
+        },
+        "POSTGRES_DB": {
+          "alias": "name",
+          "default": "subtraction_service"
+        }
+      }
+    }
+  },
   "debug": "sh -c '/usr/src/app/bin/architect_subtraction_service'"
 }

@@ -3,7 +3,10 @@ package architect_subtraction_service;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.HashMap;
+import java.util.Properties;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -39,6 +42,28 @@ public class SubtractionController {
         } catch(Exception ex) {
             ex.printStackTrace();
             System.err.println("Addition get request failed");
+        }
+
+        JsonObject datastoreConfig = Architect.sdk().datastore("primary");
+
+        // Establish database connection
+        Connection conn = null;
+        Properties connectionProps = new Properties();
+        Integer port = datastoreConfig.getInt("port");
+
+        connectionProps.put("user", datastoreConfig.getString("username"));
+        connectionProps.put("password", datastoreConfig.getString("password"));
+
+        try {
+            conn = DriverManager.getConnection(
+                    "jdbc:postgresql://" +
+                    "127.0.0.1:" + port.toString() +
+                    "/" + datastoreConfig.getString("name"),
+                    connectionProps);
+            System.out.println("Connected to Postgres");
+            conn.close();
+        } catch(Exception ex) {
+            ex.printStackTrace();
         }
         
         return new SubtractionResult(responseObject.getInt("result"));

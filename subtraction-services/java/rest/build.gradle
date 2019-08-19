@@ -1,12 +1,9 @@
 plugins {
-    // Provide convenience executables for trying out the examples.
     id 'application'
-    // Generate IntelliJ IDEA's .idea & .iml project files
-    id 'idea'
 }
 
 repositories {
-    maven { // The google mirror is less flaky than mavenCentral()
+    maven {
         url "https://maven-central.storage-download.googleapis.com/repos/central/data/" }
     mavenLocal()
 }
@@ -21,9 +18,14 @@ dependencies {
     
     implementation "org.glassfish:javax.json:1.1.4"
 
+    implementation "org.postgresql:postgresql:42.2.6"
+
     compile files("build/libs/sdk.jar")
-    compile files("build/libs")
+    compile files("build/libs/")
 }
+
+targetCompatibility = "1.7"
+sourceCompatibility = "1.7"
 
 startScripts.enabled = false
 
