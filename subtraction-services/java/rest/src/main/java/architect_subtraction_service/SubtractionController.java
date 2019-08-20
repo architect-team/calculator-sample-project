@@ -26,9 +26,10 @@ public class SubtractionController {
 
     @RequestMapping("/subtract")
     public SubtractionResult subtract(@RequestParam(value="first") String first, @RequestParam(value="second") String second) {
+        Architect architect = Architect.sdk();
         Integer secondInt = Integer.parseInt(second) * -1;
 
-        ArchitectService additionService = Architect.sdk().service("architect/addition-service");
+        ArchitectService additionService = architect.service("architect/addition-service");
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("first", first);
         params.put("second", secondInt.toString());
@@ -44,7 +45,7 @@ public class SubtractionController {
             System.err.println("Addition get request failed");
         }
 
-        JsonObject datastoreConfig = Architect.sdk().datastore("primary");
+        JsonObject datastoreConfig = architect.datastore("primary");
 
         // Establish database connection
         Connection conn = null;
