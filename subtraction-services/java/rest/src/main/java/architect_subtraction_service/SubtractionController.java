@@ -48,16 +48,17 @@ public class SubtractionController {
 
         // Establish database connection
         Connection conn = null;
-        Properties connectionProps = new Properties();
-        Integer port = datastoreConfig.getInt("port");
+        String dbHost = datastoreConfig.getString("host");
+        Integer dbPort = datastoreConfig.getInt("port");
 
+        Properties connectionProps = new Properties();
         connectionProps.put("user", datastoreConfig.getString("username"));
         connectionProps.put("password", datastoreConfig.getString("password"));
 
         try {
             conn = DriverManager.getConnection(
                     "jdbc:postgresql://" +
-                    "127.0.0.1:" + port.toString() +
+                    dbHost + ":" + dbPort.toString() +
                     "/" + datastoreConfig.getString("name"),
                     connectionProps);
             System.out.println("Connected to Postgres");
