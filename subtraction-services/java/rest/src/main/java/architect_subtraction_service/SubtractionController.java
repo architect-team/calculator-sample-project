@@ -58,7 +58,6 @@ public class SubtractionController {
                     dbHost + ":" + dbPort.toString() +
                     "/" + datastoreConfig.getString("name"),
                     connectionProps);
-            System.out.println("Connected to Postgres");
             conn.close();
         } catch(Exception ex) {
             ex.printStackTrace();

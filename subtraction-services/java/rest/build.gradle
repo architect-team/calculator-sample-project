@@ -4,7 +4,11 @@ plugins {
 
 repositories {
     maven {
-        url "https://maven-central.storage-download.googleapis.com/repos/central/data/" }
+        url "https://maven-central.storage-download.googleapis.com/repos/central/data/"
+    }
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
     mavenLocal()
 }
 
@@ -20,8 +24,7 @@ dependencies {
 
     implementation "org.postgresql:postgresql:42.2.6"
 
-    compile files("build/libs/architect_sdk.jar")
-    compile files("build/libs/")
+    implementation "io.architect.sdk:architect_sdk:0.1.0-SNAPSHOT"
 }
 
 targetCompatibility = "1.7"
