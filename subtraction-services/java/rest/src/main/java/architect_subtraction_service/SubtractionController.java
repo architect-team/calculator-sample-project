@@ -42,8 +42,6 @@ public class SubtractionController {
         }
 
         JsonObject datastoreConfig = Architect.datastore("primary");
-
-        // Establish database connection
         Connection conn = null;
         String dbHost = datastoreConfig.getString("host");
         Integer dbPort = datastoreConfig.getInt("port");
