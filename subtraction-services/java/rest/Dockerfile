@@ -8,7 +8,6 @@ COPY settings.gradle ./
 COPY gradle/* ./gradle/wrapper
 COPY gradlew ./
 COPY src/main/java/architect_subtraction_service/* ./src/main/java/architect_subtraction_service/
-COPY build/libs/* ./build/libs/
 
 RUN ./gradlew installDist
 
