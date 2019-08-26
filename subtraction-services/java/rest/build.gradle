@@ -1,0 +1,42 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    maven {
+        url "https://maven-central.storage-download.googleapis.com/repos/central/data/"
+    }
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly "javax.annotation:javax.annotation-api:1.2"
+
+    implementation "org.springframework.boot:spring-boot-starter-parent:2.1.6.RELEASE"
+    implementation "org.springframework.boot:spring-boot-starter-web:2.1.6.RELEASE"
+
+    implementation "org.apache.httpcomponents:httpclient:4.5.9"
+
+    implementation "org.glassfish:javax.json:1.1.4"
+
+    implementation "org.postgresql:postgresql:42.2.6"
+
+    implementation "io.architect.sdk:architect_sdk:0.1.0"
+}
+
+targetCompatibility = "1.7"
+sourceCompatibility = "1.7"
+
+startScripts.enabled = false
+
+task architectSubtractionService(type: CreateStartScripts) {
+    mainClassName = 'architect_subtraction_service.Application'
+    applicationName = 'architect_subtraction_service'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
+applicationDistribution.into('bin') {
+    from(architectSubtractionService)
+    fileMode = 0755
+}

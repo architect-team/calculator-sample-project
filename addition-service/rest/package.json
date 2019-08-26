@@ -1,0 +1,23 @@
+{
+  "name": "architect-addition-service",
+  "version": "0.2.0",
+  "description": "REST service to demo usage using the Architect platform",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon -L src/index.js"
+  },
+  "keywords": [
+    "architect",
+    "rest"
+  ],
+  "author": "Architect.io",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

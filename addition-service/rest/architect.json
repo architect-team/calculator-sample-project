@@ -1,7 +1,7 @@
 {
-  "name": "architect/subtraction-service",
+  "name": "architect/addition-service",
   "version": "0.2.0",
-  "description": "Service to do the subtraction arithmetic operation",
+  "description": "Service to do the addition arithmetic operation",
   "keywords": [
     "architect",
     "math",
@@ -16,8 +16,6 @@
   "api": {
     "type": "rest"
   },
-  "dependencies": {
-    "architect/addition-service": "file:../../../addition-service/grpc/"
-  },
+  "dependencies": {},
   "debug": "npm run dev"
 }
