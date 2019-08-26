@@ -20,6 +20,6 @@
     ]
   },
   "dependencies": {
-    "architect/subtraction-service": "file:../subtraction-services/java/rest/"
+    "architect/subtraction-service": "file:../subtraction-services/go/rest/"
   }
 }
