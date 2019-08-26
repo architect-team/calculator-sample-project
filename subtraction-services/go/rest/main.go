@@ -1,21 +1,16 @@
 package main
 
 import (
-	// "fmt"
 	"os"
 	"strconv"
 
-	//architect "./architect"
 	architect "github.com/architect-team/go-sdk"
+
 	echo "github.com/labstack/echo"
 	gjson "github.com/tidwall/gjson"
 )
 
 func main() {
-	// resp := additionService.Client().Get("/add", map[string]string{
-	//      "first": "50",
-	//      "second": "5",
-	// })
 	// datastore := architect.Datastore("primary")
 	// fmt.Println(datastore)
 
