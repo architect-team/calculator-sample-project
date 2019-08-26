@@ -3,16 +3,21 @@ package main
 import (
 	"os"
 	"strconv"
+	sql "database/sql"
 
+	_ "github.com/lib/pq"
 	architect "github.com/architect-team/go-sdk"
-
 	echo "github.com/labstack/echo"
 	gjson "github.com/tidwall/gjson"
 )
 
 func main() {
-	// datastore := architect.Datastore("primary")
-	// fmt.Println(datastore)
+	datastore := architect.Datastore("primary")
+	dbName := datastore["name"].(string)
+	user := datastore["username"].(string)
+	password := datastore["password"].(string)
+	db, _ := sql.Open("postgres", "user=" + user + "password=" + password + "dbname=" + dbName)
+	db.Close()
 
 	echoServer := echo.New()
 	echoServer.GET("/subtract", subtract)
