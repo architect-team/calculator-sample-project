@@ -34,7 +34,7 @@ func subtract(c echo.Context) error {
     params := map[string]string{}
     params["first"] = first
     params["second"] = secondString
-    response := additionService.Client().Get("/add", params)
+    response, _ := additionService.Client().R().SetQueryParams(params).Get("/add")
 
     result := gjson.Get(response.String(), "result")
     resultInt, _ := strconv.Atoi(result.String())
