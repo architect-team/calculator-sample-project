@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-    datastore := architect.Datastore("primary")
+    datastore, _ := architect.Datastore("primary")
     dbName := datastore["name"].(string)
     user := datastore["username"].(string)
     password := datastore["password"].(string)
@@ -30,7 +30,7 @@ func subtract(c echo.Context) error {
     secondInt = secondInt * -1
     secondString := strconv.Itoa(secondInt)
 
-    additionService := architect.Service("architect/addition-service")
+    additionService, _ := architect.Service("architect/addition-service")
     params := map[string]string{}
     params["first"] = first
     params["second"] = secondString

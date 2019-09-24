@@ -9,5 +9,3 @@ require (
 	github.com/lib/pq v1.2.0
 	github.com/tidwall/gjson v1.3.2
 )
-
-replace github.com/architect-team/go-sdk => ./go-sdk
