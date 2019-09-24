@@ -1,0 +1,27 @@
+language: go
+
+go:
+  - 1.5
+
+evn:
+  - GO15VENDOREXPERIMENT=1
+  - secure: "BLUzKR7OHzI2jBR+Mo0CoyazvtpOaLn06dIcr1xI756x/AqlmDp7eV0u+h1r7EKMLppdCUHfkiFsPm9bQyMBELo4rT6l8XNjeWY46L9Ky3Il93g5PMNUI9H3nABiST9d7myPjE4139z2CAeyHwXtoObISEhpYjqgec0IecXzpSbQjOjUxRAdbNfXhHtK1lKvhy5IgUbGIG5u+Vlj+Tub6bO8fJWifRSwnl/mT0Ow3VYmh2bI7luH+kdv0tbxj+3d0h7F3UY5EFEDB2/ZDNA0AFZB8YZWbuD2lUX53x7dGNIzxvJMUEW0aL4uQrfd0t8LZFs9k5tuoFaaC1SpzXWagX4mqw0THpWw+mL1gI1xzcqf7UriLIllgtv96CPHB1UO9n2kkpocyXpf+rcQviqMgFakzBp9q8wDiBn7bX39FZyHusX73B172uiY/8kA2q/clck70KhycHg4nha2atT7w4OqnnlOEzxxhy0inqcjyWYmXtBDzYFN+4HFH6t5zkylLJvD/ag2j7lNO4NKLf3C0WbCycF5H+tY5FNOuq6VTJjMFzoH2m5xRti5Bfp1F0MqlIPAse1g9McWCmFYDr3LXVx4VnozqDt9ue85o+EvhHkQhraTEUSSb8k9T1dLpfaLGukr+CIbA5BVOAzISQ3f5HL51WBxlDZXVE3M7rt95MM="
+
+before_install:
+  - go get -v golang.org/x/tools/cmd/cover
+  - go get -v github.com/golang/lint/golint
+  - go get -v github.com/Sirupsen/logrus
+  - go get -v github.com/stretchr/testify/assert
+  - go get -v github.com/mattn/goveralls
+
+install:
+  - go install -race -v std
+  - go get -race -t -v ./...
+  - go install -race -v ./...
+
+script:
+  - $HOME/gopath/bin/golint .
+  - go test -cpu=2 -race -v ./...
+  - go test -cpu=2 -covermode=atomic ./...
+  - go test -v -covermode=count -coverprofile=coverage.out
+  - $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN
