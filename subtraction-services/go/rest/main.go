@@ -12,11 +12,17 @@ import (
 )
 
 func main() {
-    datastore := architect.Datastore("primary")
+    datastore, err := architect.Datastore("primary")
+    if err != nil {
+        panic(err)
+    }
     dbName := datastore["name"].(string)
     user := datastore["username"].(string)
     password := datastore["password"].(string)
-    db, _ := sql.Open("postgres", "user=" + user + "password=" + password + "dbname=" + dbName)
+    db, err := sql.Open("postgres", "user=" + user + "password=" + password + "dbname=" + dbName)
+    if err != nil {
+        panic(err)
+    }
     db.Close()
 
     echoServer := echo.New()
@@ -26,17 +32,29 @@ func main() {
 
 func subtract(c echo.Context) error {
     first := c.QueryParam("first")
-    secondInt, _ := strconv.Atoi(c.QueryParam("second"))
+    secondInt, err := strconv.Atoi(c.QueryParam("second"))
+    if err != nil {
+        return err
+    }
     secondInt = secondInt * -1
     secondString := strconv.Itoa(secondInt)
 
-    additionService := architect.Service("architect/addition-service")
+    additionService, err := architect.Service("architect/addition-service")
+    if err != nil {
+        return err
+    }
     params := map[string]string{}
     params["first"] = first
     params["second"] = secondString
-    response, _ := additionService.Client().R().SetQueryParams(params).Get("/add")
+    response, err := additionService.Client().R().SetQueryParams(params).Get("/add")
+    if err != nil {
+        return err
+    }
 
     result := gjson.Get(response.String(), "result")
-    resultInt, _ := strconv.Atoi(result.String())
+    resultInt, err := strconv.Atoi(result.String())
+    if err != nil {
+        return err
+    }
     return c.JSON(200, map[string]int{"result": resultInt})
 }
