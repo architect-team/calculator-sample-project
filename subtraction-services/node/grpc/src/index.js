@@ -3,7 +3,7 @@
 const grpc = require('grpc');
 const architect = require('@architect-io/sdk').default;
 
-const addition_service = architect.service('architect/addition-service');
+const addition_service = architect.service('architect/addition-service-grpc');
 const { SubtractionResponse } = architect.current_service().defs;
 
 const subtract = (call, callback) => {
