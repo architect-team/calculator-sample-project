@@ -20,6 +20,6 @@
     ]
   },
   "dependencies": {
-    "architect/subtraction-service-rest": "file:../subtraction-services/go/rest/"
+    "architect/subtraction-service-rest": "latest"
   }
 }
