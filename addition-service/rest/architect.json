@@ -1,5 +1,5 @@
 {
-  "name": "architect/addition-service",
+  "name": "architect/addition-service-rest",
   "version": "0.2.0",
   "description": "Service to do the addition arithmetic operation",
   "keywords": [
