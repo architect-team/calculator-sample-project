@@ -1,5 +1,5 @@
 {
-  "name": "architect/subtraction-service",
+  "name": "architect/subtraction-service-rest",
   "version": "0.1.0",
   "description": "Service to do the subtraction arithmetic operation",
   "keywords": [
@@ -12,7 +12,7 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "architect/addition-service": "file:../../../addition-service/grpc/"
+    "architect/addition-service-grpc": "latest"
   },
   "language": "python",
   "api": {

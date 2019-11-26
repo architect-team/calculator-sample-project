@@ -11,7 +11,7 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "division-service": "file:../division-service/"
+    "division-service-grpc": "latest"
   },
   "api": null,
   "language": "node"

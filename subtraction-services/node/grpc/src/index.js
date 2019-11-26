@@ -3,29 +3,23 @@
 const grpc = require('grpc');
 const architect = require('@architect-io/sdk').default;
 
-const addition_service = architect.service('architect/addition-service');
+const addition_service = architect.service('architect/addition-service-rest');
 const { SubtractionResponse } = architect.current_service().defs;
 
-const subtract = (call, callback) => {
+const subtract = async (call, callback) => {
+  console.log('test');
   let first = call.request.getFirst();
   let second = call.request.getSecond();
   second *= -1;
 
-  const addition_request = new addition_service.defs.AddRequest();
-  addition_request.setFirst(first);
-  addition_request.setSecond(second);
-  addition_service.client.add(
-    addition_request,
-    (error, addition_response) => {
-      if (error) {
-        return callback(error);
-      } else {
-        let response = new SubtractionResponse();
-        response.setOutput(addition_response.getOutput());
-        return callback(null, response);
-      }
-    }
-  );
+  try {
+    const { data } = await addition_service.client.get(`/add?first=${first}&second=${second}`);
+    const res = new SubtractionResponse();
+    res.setOutput(data.result);
+    callback(null, res);
+  } catch (error) {
+    callback(error);
+  }
 };
 
 // START SERVER

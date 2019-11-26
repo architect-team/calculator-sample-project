@@ -1,5 +1,5 @@
 {
-  "name": "architect/subtraction-service",
+  "name": "architect/subtraction-service-rest",
   "version": "0.1.0",
   "description": "Service to do the subtraction arithmetic operation",
   "keywords": [
@@ -12,31 +12,12 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "architect/addition-service": "file:../../../addition-service/rest/"
+    "architect/addition-service-rest": "latest"
   },
   "language": "java",
   "api": {
     "type": "rest"
   },
-  "datastores": {
-    "primary": {
-      "image": "postgres:10",
-      "port": 5432,
-      "parameters": {
-        "POSTGRES_USER": {
-          "alias": "username",
-          "default": "postgres"
-        },
-        "POSTGRES_PASSWORD": {
-          "alias": "password",
-          "default": "architect"
-        },
-        "POSTGRES_DB": {
-          "alias": "name",
-          "default": "subtraction_service"
-        }
-      }
-    }
-  },
+  "datastores": {},
   "debug": "sh -c '/usr/src/app/bin/architect_subtraction_service'"
 }

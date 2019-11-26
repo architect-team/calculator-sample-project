@@ -25,7 +25,7 @@ public class SubtractionController {
     public SubtractionResult subtract(@RequestParam(value="first") String first, @RequestParam(value="second") String second) {
         Integer secondInt = Integer.parseInt(second) * -1;
 
-        ArchitectService additionService = Architect.service("architect/addition-service");
+        ArchitectService additionService = Architect.service("architect/addition-service-rest");
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("first", first);
         params.put("second", secondInt.toString());
@@ -39,26 +39,6 @@ public class SubtractionController {
         } catch(Exception ex) {
             ex.printStackTrace();
             System.err.println("Addition get request failed");
-        }
-
-        JsonObject datastoreConfig = Architect.datastore("primary");
-        Connection conn = null;
-        String dbHost = datastoreConfig.getString("host");
-        Integer dbPort = datastoreConfig.getInt("port");
-
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", datastoreConfig.getString("username"));
-        connectionProps.put("password", datastoreConfig.getString("password"));
-
-        try {
-            conn = DriverManager.getConnection(
-                    "jdbc:postgresql://" +
-                    dbHost + ":" + dbPort.toString() +
-                    "/" + datastoreConfig.getString("name"),
-                    connectionProps);
-            conn.close();
-        } catch(Exception ex) {
-            ex.printStackTrace();
         }
 
         return new SubtractionResult(responseObject.getInt("result"));

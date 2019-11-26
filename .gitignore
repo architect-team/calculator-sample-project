@@ -44,3 +44,6 @@ build/
 .classpath
 examples/
 vendor/
+
+# architect
+architect_services/

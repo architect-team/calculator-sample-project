@@ -1,5 +1,5 @@
 {
-  "name": "architect/addition-service",
+  "name": "architect/addition-service-rest",
   "version": "0.2.0",
   "description": "Service to do the addition arithmetic operation",
   "keywords": [
@@ -17,5 +17,25 @@
     "type": "rest"
   },
   "dependencies": {},
+  "datastores": {
+    "primary": {
+      "image": "postgres:10",
+      "port": 5432,
+      "parameters": {
+        "POSTGRES_USER": {
+          "alias": "username",
+          "default": "postgres"
+        },
+        "POSTGRES_PASS": {
+          "alias": "password",
+          "default": "architect"
+        },
+        "POSTGRES_DB": {
+          "alias": "name",
+          "default": "addition_service"
+        }
+      }
+    }
+  },
   "debug": "npm run dev"
 }
