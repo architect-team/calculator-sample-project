@@ -1,4 +1,4 @@
-module github.com/architect-team/calculator-example
+module github.com/architect-team/calculator-sample-project
 
 go 1.13
 

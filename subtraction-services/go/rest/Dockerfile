@@ -4,6 +4,6 @@ RUN apk update && apk add --no-cache git
 WORKDIR $GOPATH/src/
 COPY . .
 
-RUN go mod vendor
+RUN GO111MODULE=on go mod vendor
 
 CMD ["go", "run", "main.go"]

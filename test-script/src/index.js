@@ -7,7 +7,7 @@ const second = 5;
 
 setTimeout(() => {
   console.log(`Dividing ${first} by ${second}...`);
-  const division_service = architect.service('architect/division-service');
+  const division_service = architect.service('architect/division-service-grpc');
   let request = new division_service.defs.MathRequest();
   request.setFirst(first);
   request.setSecond(second);

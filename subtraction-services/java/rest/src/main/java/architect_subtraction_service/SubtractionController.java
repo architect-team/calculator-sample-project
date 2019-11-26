@@ -25,7 +25,7 @@ public class SubtractionController {
     public SubtractionResult subtract(@RequestParam(value="first") String first, @RequestParam(value="second") String second) {
         Integer secondInt = Integer.parseInt(second) * -1;
 
-        ArchitectService additionService = Architect.service("architect/addition-service");
+        ArchitectService additionService = Architect.service("architect/addition-service-rest");
         HashMap<String, String> params = new HashMap<String, String>();
         params.put("first", first);
         params.put("second", secondInt.toString());
