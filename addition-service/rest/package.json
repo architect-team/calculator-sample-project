@@ -14,8 +14,12 @@
   "author": "Architect.io",
   "license": "ISC",
   "dependencies": {
+    "@architect-io/sdk": "^0.2.2",
     "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg": "^7.14.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
