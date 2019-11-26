@@ -1,7 +1,6 @@
 package main
 
 import (
-	sql "database/sql"
 	"os"
 	"strconv"
 
