@@ -41,26 +41,6 @@ public class SubtractionController {
             System.err.println("Addition get request failed");
         }
 
-        JsonObject datastoreConfig = Architect.datastore("primary");
-        Connection conn = null;
-        String dbHost = datastoreConfig.getString("host");
-        Integer dbPort = datastoreConfig.getInt("port");
-
-        Properties connectionProps = new Properties();
-        connectionProps.put("user", datastoreConfig.getString("username"));
-        connectionProps.put("password", datastoreConfig.getString("password"));
-
-        try {
-            conn = DriverManager.getConnection(
-                    "jdbc:postgresql://" +
-                    dbHost + ":" + dbPort.toString() +
-                    "/" + datastoreConfig.getString("name"),
-                    connectionProps);
-            conn.close();
-        } catch(Exception ex) {
-            ex.printStackTrace();
-        }
-
         return new SubtractionResult(responseObject.getInt("result"));
     }
 }

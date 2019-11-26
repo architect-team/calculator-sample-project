@@ -19,6 +19,6 @@
     ]
   },
   "dependencies": {
-    "architect/addition-service": "file:../../../addition-service/grpc/"
+    "architect/addition-service-rest": "latest"
   }
 }

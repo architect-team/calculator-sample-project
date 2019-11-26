@@ -3,7 +3,7 @@
 const grpc = require('grpc');
 const architect = require('@architect-io/sdk').default;
 
-const subtraction_service = architect.service('architect/subtraction-service-grpc');
+const subtraction_service = architect.service('architect/subtraction-service-rest');
 const { MathResponse } = architect.current_service().defs;
 
 const _divide_values = (result, value, magnitude, callback) => {

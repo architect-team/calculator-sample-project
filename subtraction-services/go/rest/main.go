@@ -12,19 +12,6 @@ import (
 )
 
 func main() {
-	datastore, err := architect.Datastore("primary")
-	if err != nil {
-		panic(err)
-	}
-	dbName := datastore["name"].(string)
-	user := datastore["username"].(string)
-	password := datastore["password"].(string)
-	db, err := sql.Open("postgres", "user="+user+"password="+password+"dbname="+dbName)
-	if err != nil {
-		panic(err)
-	}
-	db.Close()
-
 	echoServer := echo.New()
 	echoServer.GET("/subtract", subtract)
 	echoServer.Logger.Fatal(echoServer.Start(os.Getenv("HOST") + ":" + os.Getenv("PORT")))

@@ -1,7 +1,7 @@
 {
   "name": "architect/division-service-grpc",
   "dependencies": {
-    "architect/subtraction-service-grpc": "latest"
+    "architect/subtraction-service-rest": "latest"
   },
   "parameters": {},
   "datastores": {},
