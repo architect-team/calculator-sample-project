@@ -2,7 +2,7 @@
 
 const grpc = require('grpc');
 const axios = require('axios');
-const MathResponse = require('./../service_pb').MathResponse;
+const { MathResponse } = require('./../service_pb');
 
 const _divide_values = (result, value, magnitude, callback) => {
   if (value <= 0) {
@@ -25,7 +25,7 @@ const divide = (call, callback) => {
 const { HOST, PORT } = process.env;
 const server = new grpc.Server();
 const grpc_pb = require('../service_grpc_pb').ArchitectService;
-server.addService(grpc_pb, divide);
+server.addService(grpc_pb, { divide });
 server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
 server.start();
 console.log(`Listening at ${HOST}:${PORT}`);

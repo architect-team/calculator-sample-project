@@ -16,10 +16,10 @@ def subtract():
     first = int(request.args['first'])
     second = int(request.args['second']) * -1
 
-    addition_defs = importlib.import_module('../service_pb2.py')
+    addition_defs = importlib.import_module('service_pb2')
     req = addition_defs.AddRequest(first=first, second=second)
 
-    addition_grpc_pb = importlib.import_module('../service_pb2_grpc.py')
+    addition_grpc_pb = importlib.import_module('service_pb2_grpc')
     channel = grpc.insecure_channel(os.environ['ADDITION_SERVICE_ADDRESS'])
     client = addition_grpc_pb.ArchitectStub(channel)
     res = client.Add(req)

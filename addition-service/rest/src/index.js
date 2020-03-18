@@ -1,18 +1,16 @@
 const express = require("express");
 const Sequelize = require('sequelize');
 const bodyParser = require("body-parser");
-const architect = require('@architect-io/sdk').default;
 const initDatabaseModels = require('./db_models');
 
 // Setup DB client
-const primary_db_config = architect.datastore('primary');
 const primary_db_client = new Sequelize(
-  primary_db_config.name,
-  primary_db_config.username,
-  primary_db_config.password,
+  process.env.DB_PRIMARY_DB,
+  process.env.DB_PRIMARY_USER,
+  process.env.DB_PRIMARY_PASSWORD,
   {
-    host: primary_db_config.host,
-    port: primary_db_config.port,
+    host: process.env.DB_PRIMARY_HOST,
+    port: process.env.DB_PRIMARY_PORT,
     dialect: 'postgres',
     retry: {
       match: [

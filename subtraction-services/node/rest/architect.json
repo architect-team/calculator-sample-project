@@ -17,7 +17,7 @@
     "type": "rest"
   },
   "dependencies": {
-    "architect/addition-service-grpc": "latest"
+    "architect/addition-service-rest": "latest"
   },
   "debug": "npm run dev"
 }

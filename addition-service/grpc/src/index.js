@@ -2,7 +2,7 @@
 
 const grpc = require('grpc');
 const Sequelize = require('sequelize');
-const AddResponse = require('./../service_pb').AddResponse;
+const { AddResponse } = require('./../service_pb');
 const initDatabaseModels = require('./db_models');
 
 // Setup DB client
@@ -60,7 +60,7 @@ const service_impl = {
 const { HOST, PORT } = process.env;
 const server = new grpc.Server();
 const grpc_pb = require('../service_grpc_pb').ArchitectService;
-server.addService(grpc_pb, service_impl);
+server.addService(grpc_pb, { service_impl });
 server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
 server.start();
 console.log(`Listening at ${HOST}:${PORT}`);

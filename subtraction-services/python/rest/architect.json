@@ -12,13 +12,13 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "architect/addition-service-grpc": "latest"
+    "architect/addition-service-rest": "latest"
   },
   "parameters": {
     "ADDITION_SERVICE_ADDRESS": {
       "default": {
         "valueFrom": {
-          "dependency": "architect/addition-service-grpc:latest",
+          "dependency": "architect/addition-service-rest:latest",
           "value": "$HOST:$PORT"
         }
       }

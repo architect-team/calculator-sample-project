@@ -1,17 +1,18 @@
 'use strict';
 
-const architect = require('@architect-io/sdk').default;
+const { MathRequest } = require('./../service_pb');
 
 const first = 50;
 const second = 5;
 
 setTimeout(() => {
   console.log(`Dividing ${first} by ${second}...`);
-  const division_service = architect.service('architect/division-service-grpc');
-  let request = new division_service.defs.MathRequest();
+  let request = new MathRequest();
   request.setFirst(first);
   request.setSecond(second);
-  division_service.client.divide(request, (error, response) => {
+
+  const division_client = require('../service_grpc_pb').ArchitectClient;
+  division_client.divide(request, (error, response) => {
     if (error) {
       return console.error(error);
     }

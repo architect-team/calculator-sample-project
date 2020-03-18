@@ -1,8 +1,6 @@
-const architect = require('@architect-io/sdk').default;
 const express = require("express");
 const bodyParser = require("body-parser");
-
-const addition_service = architect.service('architect/addition-service-grpc');
+const { AddRequest } = require('./../service_pb');
 
 const app = express();
 
@@ -13,10 +11,12 @@ app.get('/subtract', (req, res) => {
   let { first, second } = req.query;
   second *= -1;
 
-  const addition_request = new addition_service.defs.AddRequest();
+  const addition_request = new AddRequest();
   addition_request.setFirst(first);
   addition_request.setSecond(second);
-  addition_service.client.add(
+
+  const addition_client = require('../service_grpc_pb').ArchitectClient;
+  addition_client.add(
     addition_request,
     (error, addition_response) => {
       if (error) {

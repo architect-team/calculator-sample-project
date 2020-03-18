@@ -1,19 +1,16 @@
 'use strict';
 
 const grpc = require('grpc');
-const architect = require('@architect-io/sdk').default;
-
-const addition_service = architect.service('architect/addition-service-rest');
-const { SubtractionResponse } = architect.current_service().defs;
+const axios = require('axios');
+const { SubtractionResponse } = require('../service_pb');
 
 const subtract = async (call, callback) => {
-  console.log('test');
   let first = call.request.getFirst();
   let second = call.request.getSecond();
   second *= -1;
 
   try {
-    const { data } = await addition_service.client.get(`/add?first=${first}&second=${second}`);
+    const { data } = await axios.get(`${process.env.ADDITION_SERVICE_ADDRESS}/add?first=${first}&second=${second}`);
     const res = new SubtractionResponse();
     res.setOutput(data.result);
     callback(null, res);
@@ -25,7 +22,8 @@ const subtract = async (call, callback) => {
 // START SERVER
 const { HOST, PORT } = process.env;
 const server = new grpc.Server();
-architect.current_service().addService(server, { subtract });
+const grpc_pb = require('../service_grpc_pb').ArchitectService;
+server.addService(grpc_pb, { subtract });
 server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
 server.start();
 console.log(`Listening at ${HOST}:${PORT}`);

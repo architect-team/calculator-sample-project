@@ -21,5 +21,15 @@
   "dependencies": {
     "architect/addition-service-rest": "latest"
   },
+  "parameters": {
+    "ADDITION_SERVICE_ADDRESS": {
+      "default": {
+        "valueFrom": {
+          "dependency": "architect/addition-service-rest:latest",
+          "value": "$HOST:$PORT"
+        }
+      }
+    }
+  },
   "debug": "npm run dev"
 }
