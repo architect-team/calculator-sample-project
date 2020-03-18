@@ -1,10 +1,8 @@
 'use strict';
 
 const grpc = require('grpc');
-const architect = require('@architect-io/sdk').default;
-
-const subtraction_service = architect.service('architect/subtraction-service-rest');
-const { MathResponse } = architect.current_service().defs;
+const axios = require('axios');
+const MathResponse = require('./../service_pb').MathResponse;
 
 const _divide_values = (result, value, magnitude, callback) => {
   if (value <= 0) {
@@ -13,7 +11,7 @@ const _divide_values = (result, value, magnitude, callback) => {
     return callback(null, divide_response);
   }
 
-  subtraction_service.client.get(`/subtract?first=${value}&second=${magnitude}`)
+  axios.get(`${process.env.SUBTRACTION_SERVICE_ADDRESS}/subtract?first=${value}&second=${magnitude}`)
     .catch(error => callback(error))
     .then(response => _divide_values(result + 1, response.data.result, magnitude, callback));
 };
@@ -26,7 +24,8 @@ const divide = (call, callback) => {
 // START SERVER
 const { HOST, PORT } = process.env;
 const server = new grpc.Server();
-architect.current_service().addService(server, { divide });
+const grpc_pb = require('../service_grpc_pb').ArchitectService;
+server.addService(grpc_pb, divide);
 server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
 server.start();
 console.log(`Listening at ${HOST}:${PORT}`);

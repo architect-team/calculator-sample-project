@@ -2,18 +2,17 @@
 
 const grpc = require('grpc');
 const Sequelize = require('sequelize');
-const architect = require('@architect-io/sdk').default;
+const AddResponse = require('./../service_pb').AddResponse;
 const initDatabaseModels = require('./db_models');
 
 // Setup DB client
-const primary_db_config = architect.datastore('primary');
 const primary_db_client = new Sequelize(
-  primary_db_config.name,
-  primary_db_config.username,
-  primary_db_config.password,
+  process.env.DB_PRIMARY_DB,
+  process.env.DB_PRIMARY_USER,
+  process.env.DB_PRIMARY_PASSWORD,
   {
-    host: primary_db_config.host,
-    port: primary_db_config.port,
+    host: process.env.DB_PRIMARY_HOST,
+    port: process.env.DB_PRIMARY_PORT,
     dialect: 'postgres',
     retry: {
       match: [
@@ -49,7 +48,6 @@ const service_impl = {
       second: add_request.getSecond(),
       result: add_request.getFirst() + add_request.getSecond()
     }).then(record => {
-      const { AddResponse } = architect.current_service().defs;
       const response = new AddResponse();
       response.setOutput(record.result);
       callback(null, response);
@@ -61,7 +59,8 @@ const service_impl = {
 // START SERVER
 const { HOST, PORT } = process.env;
 const server = new grpc.Server();
-architect.current_service().addService(server, service_impl);
+const grpc_pb = require('../service_grpc_pb').ArchitectService;
+server.addService(grpc_pb, service_impl);
 server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
 server.start();
 console.log(`Listening at ${HOST}:${PORT}`);
