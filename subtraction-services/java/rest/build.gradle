@@ -20,8 +20,6 @@ dependencies {
     implementation "org.glassfish:javax.json:1.1.4"
 
     implementation "org.postgresql:postgresql:42.2.6"
-
-    implementation "io.architect.sdk:architect_sdk:0.1.0"
 }
 
 targetCompatibility = "1.7"
