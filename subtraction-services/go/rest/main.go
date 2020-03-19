@@ -4,10 +4,10 @@ import (
 	"os"
 	"strconv"
 
-	architect "github.com/architect-team/go-sdk"
 	echo "github.com/labstack/echo"
 	_ "github.com/lib/pq"
 	gjson "github.com/tidwall/gjson"
+	resty "github.com/go-resty/resty/v2"
 )
 
 func main() {
@@ -25,18 +25,18 @@ func subtract(c echo.Context) error {
 	secondInt = secondInt * -1
 	secondString := strconv.Itoa(secondInt)
 
-	additionService, err := architect.Service("architect/addition-service-rest")
 	if err != nil {
 		return err
 	}
 	params := map[string]string{}
 	params["first"] = first
 	params["second"] = secondString
-	response, err := additionService.Client().R().SetQueryParams(params).Get("/add")
+	client := resty.New()
+	client.SetHostURL("http://" + os.Getenv("ADDITION_SERVICE_ADDRESS"))
+	response, err := client.R().SetQueryParams(params).Get("/add")
 	if err != nil {
 		return err
 	}
-
 	result := gjson.Get(response.String(), "result")
 	resultInt, err := strconv.Atoi(result.String())
 	if err != nil {
