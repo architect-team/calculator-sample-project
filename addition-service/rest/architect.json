@@ -17,6 +17,48 @@
     "type": "rest"
   },
   "dependencies": {},
+  "parameters": {
+    "DB_PRIMARY_HOST": {
+      "default": {
+        "valueFrom": {
+          "datastore": "primary",
+          "value": "$HOST"
+        }
+      }
+    },
+    "DB_PRIMARY_PORT": {
+      "default": {
+        "valueFrom": {
+          "datastore": "primary",
+          "value": "$PORT"
+        }
+      }
+    },
+    "DB_PRIMARY_USER": {
+      "default": {
+        "valueFrom": {
+          "datastore": "primary",
+          "value": "$POSTGRES_USER"
+        }
+      }
+    },
+    "DB_PRIMARY_PASSWORD": {
+      "default": {
+        "valueFrom": {
+          "datastore": "primary",
+          "value": "$POSTGRES_PASSWORD"
+        }
+      }
+    },
+    "DB_PRIMARY_DB": {
+      "default": {
+        "valueFrom": {
+          "datastore": "primary",
+          "value": "$POSTGRES_DB"
+        }
+      }
+    }
+  },
   "datastores": {
     "primary": {
       "image": "postgres:10",
@@ -26,7 +68,7 @@
           "alias": "username",
           "default": "postgres"
         },
-        "POSTGRES_PASS": {
+        "POSTGRES_PASSWORD": {
           "alias": "password",
           "default": "architect"
         },

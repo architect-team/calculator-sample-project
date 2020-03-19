@@ -19,5 +19,15 @@
   "dependencies": {
     "architect/addition-service-grpc": "latest"
   },
+  "parameters": {
+    "ADDITION_SERVICE_ADDRESS": {
+      "default": {
+        "valueFrom": {
+          "dependency": "architect/addition-service-grpc:latest",
+          "value": "$HOST:$PORT"
+        }
+      }
+    }
+  },
   "debug": "npm run dev"
 }

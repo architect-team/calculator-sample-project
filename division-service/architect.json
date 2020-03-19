@@ -3,7 +3,16 @@
   "dependencies": {
     "architect/subtraction-service-rest": "latest"
   },
-  "parameters": {},
+  "parameters": {
+    "SUBTRACTION_SERVICE_ADDRESS": {
+      "default": {
+        "valueFrom": {
+          "dependency": "architect/subtraction-service-rest:latest",
+          "value": "$HOST:$PORT"
+        }
+      }
+    }
+  },
   "datastores": {},
   "api": {
     "type": "grpc",

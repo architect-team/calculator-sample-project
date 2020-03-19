@@ -19,5 +19,23 @@
     "type": "rest"
   },
   "datastores": {},
+  "parameters": {
+    "ADDITION_SERVICE_HOST": {
+      "default": {
+        "valueFrom": {
+          "dependency": "architect/addition-service-rest:latest",
+          "value": "$HOST"
+        }
+      }
+    },
+    "ADDITION_SERVICE_PORT": {
+      "default": {
+        "valueFrom": {
+          "dependency": "architect/addition-service-rest:latest",
+          "value": "$PORT"
+        }
+      }
+    }
+  },
   "debug": "sh -c '/usr/src/app/bin/architect_subtraction_service'"
 }
