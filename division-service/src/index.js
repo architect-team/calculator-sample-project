@@ -11,7 +11,7 @@ const _divide_values = (result, value, magnitude, callback) => {
     return callback(null, divide_response);
   }
 
-  axios.get(`${process.env.SUBTRACTION_SERVICE_ADDRESS}/subtract?first=${value}&second=${magnitude}`)
+  axios.get(`http://${process.env.SUBTRACTION_SERVICE_ADDRESS}/subtract?first=${value}&second=${magnitude}`)
     .catch(error => callback(error))
     .then(response => _divide_values(result + 1, response.data.result, magnitude, callback));
 };

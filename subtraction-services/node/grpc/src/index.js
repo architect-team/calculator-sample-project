@@ -10,7 +10,7 @@ const subtract = async (call, callback) => {
   second *= -1;
 
   try {
-    const { data } = await axios.get(`${process.env.ADDITION_SERVICE_ADDRESS}/add?first=${first}&second=${second}`);
+    const { data } = await axios.get(`http://${process.env.ADDITION_SERVICE_ADDRESS}/add?first=${first}&second=${second}`);
     const res = new SubtractionResponse();
     res.setOutput(data.result);
     callback(null, res);

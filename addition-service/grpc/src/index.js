@@ -60,7 +60,7 @@ const service_impl = {
 const { HOST, PORT } = process.env;
 const server = new grpc.Server();
 const grpc_pb = require('../service_grpc_pb').ArchitectService;
-server.addService(grpc_pb, { service_impl });
+server.addService(grpc_pb, { add: service_impl.add });
 server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
 server.start();
 console.log(`Listening at ${HOST}:${PORT}`);

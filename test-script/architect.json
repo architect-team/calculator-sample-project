@@ -11,8 +11,20 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "division-service-grpc": "latest"
+    "architect/division-service-grpc": "latest"
   },
-  "api": null,
+  "parameters": {
+    "DIVISION_SERVICE_ADDRESS": {
+      "default": {
+        "valueFrom": {
+          "dependency": "architect/division-service-grpc:latest",
+          "value": "$HOST:$PORT"
+        }
+      }
+    }
+  },
+  "api": {
+    "type": "rest"
+  },
   "language": "node"
 }

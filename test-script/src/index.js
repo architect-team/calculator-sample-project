@@ -1,6 +1,7 @@
 'use strict';
 
 const { MathRequest } = require('./../service_pb');
+const grpc = require('grpc');
 
 const first = 50;
 const second = 5;
@@ -11,7 +12,12 @@ setTimeout(() => {
   request.setFirst(first);
   request.setSecond(second);
 
-  const division_client = require('../service_grpc_pb').ArchitectClient;
+  const { ArchitectClient } = require('../service_grpc_pb');
+  const division_client = new ArchitectClient(
+    process.env.DIVISION_SERVICE_ADDRESS,
+    grpc.credentials.createInsecure()
+  );
+
   division_client.divide(request, (error, response) => {
     if (error) {
       return console.error(error);

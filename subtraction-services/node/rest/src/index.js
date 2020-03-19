@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { AddRequest } = require('./../service_pb');
+const { AddRequest } = require('../service_pb');
+const grpc = require('grpc');
 
 const app = express();
 
@@ -15,7 +16,12 @@ app.get('/subtract', (req, res) => {
   addition_request.setFirst(first);
   addition_request.setSecond(second);
 
-  const addition_client = require('../service_grpc_pb').ArchitectClient;
+  const { ArchitectClient } = require('../service_grpc_pb');
+  const addition_client = new ArchitectClient(
+    process.env.ADDITION_SERVICE_ADDRESS,
+    grpc.credentials.createInsecure()
+  );
+
   addition_client.add(
     addition_request,
     (error, addition_response) => {
