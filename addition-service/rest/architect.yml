@@ -1,0 +1,52 @@
+name: architect/addition-service-rest
+description: Service to do the addition arithmetic operation
+keywords:
+  - architect
+  - math
+  - rest
+author:
+  - David Thor
+license: ISC
+language: node
+start: npm start
+debug: npm run dev
+parameters:
+  DB_PRIMARY_HOST:
+    default:
+      valueFrom:
+        datastore: primary
+        value: $HOST
+  DB_PRIMARY_PORT:
+    default:
+      valueFrom:
+        datastore: primary
+        value: $PORT
+  DB_PRIMARY_USER:
+    default:
+      valueFrom:
+        datastore: primary
+        value: $POSTGRES_USER
+  DB_PRIMARY_PASSWORD:
+    default:
+      valueFrom:
+        datastore: primary
+        value: $POSTGRES_PASSWORD
+  DB_PRIMARY_DB:
+    default:
+      valueFrom:
+        datastore: primary
+        value: $POSTGRES_DB
+datastores:
+  primary:
+    image: postgres:10
+    port: 5432
+    parameters:
+      POSTGRES_USER:
+        alias: username
+        default: postgres
+      POSTGRES_PASSWORD:
+        alias: password
+        default: architect
+      POSTGRES_DB:
+        alias: name
+        default: addition_service
