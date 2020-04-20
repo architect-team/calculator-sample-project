@@ -59,6 +59,15 @@
           "value": "$POSTGRES_DB"
         }
       }
+    },
+    "PORT": {
+      "default": {
+        "valueFrom": {
+          "value": "$PORT",
+          "interface": "main",
+          "self": true
+        }
+      }
     }
   },
   "datastores": {
@@ -81,5 +90,10 @@
       }
     }
   },
-  "debug": "npm run dev"
+  "debug": "npm run dev",
+  "interfaces": {
+    "main": {
+      "port": 8080
+    }
+  }
 }

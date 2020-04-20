@@ -36,6 +36,12 @@ parameters:
       valueFrom:
         datastore: primary
         value: $POSTGRES_DB
+  PORT:
+    default:
+      valueFrom:
+        value: $PORT
+        self: true
+        interface: main
 datastores:
   primary:
     image: postgres:10
