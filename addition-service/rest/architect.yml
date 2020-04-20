@@ -50,3 +50,6 @@ datastores:
       POSTGRES_DB:
         alias: name
         default: addition_service
+interfaces:
+  main:
+    port: 8080
