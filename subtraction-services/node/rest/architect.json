@@ -33,8 +33,7 @@
       "default": {
         "valueFrom": {
           "value": "$PORT",
-          "interface": "main",
-          "self": true
+          "interface": "main"
         }
       }
     }

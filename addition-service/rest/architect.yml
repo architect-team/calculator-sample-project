@@ -40,7 +40,6 @@ parameters:
     default:
       valueFrom:
         value: $PORT
-        self: true
         interface: main
 datastores:
   primary:
