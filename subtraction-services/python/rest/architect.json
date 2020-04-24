@@ -19,7 +19,16 @@
       "default": {
         "valueFrom": {
           "dependency": "architect/addition-service-grpc:latest",
+          "interface": "main",
           "value": "$HOST:$PORT"
+        }
+      }
+    },
+    "PORT": {
+      "default": {
+        "valueFrom": {
+          "value": "$PORT",
+          "interface": "main"
         }
       }
     }
@@ -28,5 +37,10 @@
   "api": {
     "type": "rest"
   },
-  "debug": "sh -c 'export FLASK_DEBUG=1; python3 -u src/main.py'"
+  "debug": "sh -c 'export FLASK_DEBUG=1; python3 -u src/main.py'",
+  "interfaces": {
+    "main": {
+      "port": 8080
+    }
+  }
 }

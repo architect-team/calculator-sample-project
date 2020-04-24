@@ -24,6 +24,7 @@
       "default": {
         "valueFrom": {
           "dependency": "architect/addition-service-rest:latest",
+          "interface": "main",
           "value": "$HOST"
         }
       }
@@ -32,10 +33,24 @@
       "default": {
         "valueFrom": {
           "dependency": "architect/addition-service-rest:latest",
+          "interface": "main",
           "value": "$PORT"
+        }
+      }
+    },
+    "PORT": {
+      "default": {
+        "valueFrom": {
+          "value": "$PORT",
+          "interface": "main"
         }
       }
     }
   },
-  "debug": "sh -c '/usr/src/app/bin/architect_subtraction_service'"
+  "debug": "sh -c '/usr/src/app/bin/architect_subtraction_service'",
+  "interfaces": {
+    "main": {
+      "port": 8080
+    }
+  }
 }
