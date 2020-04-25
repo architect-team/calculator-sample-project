@@ -8,16 +8,7 @@
       "default": {
         "valueFrom": {
           "dependency": "architect/subtraction-service-rest:latest",
-          "interface": "main",
           "value": "$HOST:$PORT"
-        }
-      }
-    },
-    "PORT": {
-      "default": {
-        "valueFrom": {
-          "value": "$PORT",
-          "interface": "main"
         }
       }
     }
@@ -44,8 +35,6 @@
   "language": "node",
   "debug": "npm run debug",
   "interfaces": {
-    "main": {
-      "port": 8080
-    }
+    "main": 8080
   }
 }

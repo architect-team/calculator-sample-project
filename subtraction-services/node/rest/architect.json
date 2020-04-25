@@ -24,24 +24,13 @@
       "default": {
         "valueFrom": {
           "dependency": "architect/addition-service-grpc:latest",
-          "interface": "main",
           "value": "$HOST:$PORT"
-        }
-      }
-    },
-    "PORT": {
-      "default": {
-        "valueFrom": {
-          "value": "$PORT",
-          "interface": "main"
         }
       }
     }
   },
   "debug": "npm run dev",
   "interfaces": {
-    "main": {
-      "port": 8080
-    }
+    "main": 8080
   }
 }

@@ -19,16 +19,7 @@
       "default": {
         "valueFrom": {
           "dependency": "architect/addition-service-rest:latest",
-          "interface": "main",
           "value": "$HOST:$PORT"
-        }
-      }
-    },
-    "PORT": {
-      "default": {
-        "valueFrom": {
-          "value": "$PORT",
-          "interface": "main"
         }
       }
     }
@@ -40,8 +31,6 @@
   "datastores": {},
   "debug": "sh -c 'go run main.go'",
   "interfaces": {
-    "main": {
-      "port": 8080
-    }
+    "main": 8080
   }
 }

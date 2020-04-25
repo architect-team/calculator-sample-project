@@ -36,11 +36,6 @@ parameters:
       valueFrom:
         datastore: primary
         value: $POSTGRES_DB
-  PORT:
-    default:
-      valueFrom:
-        value: $PORT
-        interface: main
 datastores:
   primary:
     image: postgres:10
@@ -56,5 +51,4 @@ datastores:
         alias: name
         default: addition_service
 interfaces:
-  main:
-    port: 8080
+  main: 8080

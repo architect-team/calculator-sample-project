@@ -18,7 +18,6 @@
       "default": {
         "valueFrom": {
           "dependency": "architect/division-service-grpc:latest",
-          "interface": "main",
           "value": "$HOST:$PORT"
         }
       }
