@@ -29,5 +29,8 @@
     "type": "rest"
   },
   "datastores": {},
-  "debug": "sh -c 'go run main.go'"
+  "debug": "sh -c 'go run main.go'",
+  "interfaces": {
+    "main": 8080
+  }
 }
