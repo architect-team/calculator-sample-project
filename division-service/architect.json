@@ -21,17 +21,13 @@
     ]
   },
   "subscriptions": {},
-  "version": "0.2.0",
   "description": "Example service performing the division operation",
   "keywords": [
     "architect",
     "math",
     "grpc"
   ],
-  "author": [
-    "David Thor"
-  ],
-  "license": "ISC",
+  "author": "David Thor",
   "language": "node",
   "debug": "npm run debug",
   "interfaces": {

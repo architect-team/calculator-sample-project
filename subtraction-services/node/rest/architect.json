@@ -1,17 +1,13 @@
 {
   "name": "architect/subtraction-service-rest",
-  "version": "0.2.0",
   "description": "Service to do the subtraction arithmetic operation",
   "keywords": [
     "architect",
     "math",
     "rest"
   ],
-  "author": [
-    "David Thor"
-  ],
-  "license": "ISC",
-  "start": "npm start",
+  "author": "David Thor",
+  "command": "npm start",
   "language": "node",
   "api": {
     "type": "rest"

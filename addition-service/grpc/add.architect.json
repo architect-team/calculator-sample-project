@@ -1,16 +1,12 @@
 {
   "name": "architect/addition-service-grpc",
-  "version": "0.2.0",
   "description": "Addition service",
   "keywords": [
     "architect",
     "math",
     "grpc"
   ],
-  "author": [
-    "David Thor"
-  ],
-  "license": "ISC",
+  "author": "David Thor",
   "language": "node",
   "api": {
     "type": "grpc",

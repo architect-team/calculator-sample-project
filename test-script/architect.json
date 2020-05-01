@@ -1,15 +1,11 @@
 {
   "name": "test-service",
-  "version": "0.1.0",
   "description": "Test service",
   "keywords": [
     "architect",
     "test"
   ],
-  "author": [
-    "David Thor"
-  ],
-  "license": "ISC",
+  "author": "David Thor",
   "dependencies": {
     "architect/division-service-grpc": "latest"
   },

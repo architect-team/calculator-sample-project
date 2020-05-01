@@ -4,11 +4,9 @@ keywords:
   - architect
   - math
   - rest
-author:
-  - David Thor
-license: ISC
+author: David Thor
 language: node
-start: npm start
+command: npm start
 debug: npm run dev
 parameters:
   DB_PRIMARY_HOST:

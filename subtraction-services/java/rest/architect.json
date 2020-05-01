@@ -1,16 +1,12 @@
 {
   "name": "architect/subtraction-service-rest",
-  "version": "0.1.0",
   "description": "Service to do the subtraction arithmetic operation",
   "keywords": [
     "architect",
     "math",
     "example"
   ],
-  "author": [
-    "David Thor"
-  ],
-  "license": "ISC",
+  "author": "David Thor",
   "dependencies": {
     "architect/addition-service-rest": "latest"
   },
