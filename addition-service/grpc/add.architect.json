@@ -62,18 +62,9 @@
       "image": "postgres:10",
       "port": 5432,
       "parameters": {
-        "POSTGRES_USER": {
-          "alias": "username",
-          "default": "postgres"
-        },
-        "POSTGRES_PASSWORD": {
-          "alias": "password",
-          "default": "architect"
-        },
-        "POSTGRES_DB": {
-          "alias": "name",
-          "default": "addition_service"
-        }
+        "POSTGRES_USER": "postgres",
+        "POSTGRES_PASSWORD": "architect",
+        "POSTGRES_DB": "addition_service"
       }
     }
   },
