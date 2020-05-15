@@ -6,7 +6,9 @@ keywords:
   - rest
 author: David Thor
 language: node
-command: npm start
+command:
+  - npm
+  - start
 debug: npm run dev
 parameters:
   DB_PRIMARY_HOST:

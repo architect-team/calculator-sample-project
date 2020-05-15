@@ -7,7 +7,10 @@
     "rest"
   ],
   "author": "David Thor",
-  "command": "npm start",
+  "command": [
+    "npm",
+    "start"
+  ],
   "language": "node",
   "api": {
     "type": "rest"
@@ -25,7 +28,11 @@
       }
     }
   },
-  "debug": "npm run dev",
+  "debug": [
+    "npm",
+    "run",
+    "dev"
+  ],
   "interfaces": {
     "main": 8080
   }

@@ -33,7 +33,11 @@
       }
     }
   },
-  "debug": "sh -c '/usr/src/app/bin/architect_subtraction_service'",
+  "debug": [
+    "sh",
+    "-c",
+    "'/usr/src/app/bin/architect_subtraction_service'"
+  ],
   "interfaces": {
     "main": 8080
   }

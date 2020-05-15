@@ -29,7 +29,11 @@
   ],
   "author": "David Thor",
   "language": "node",
-  "debug": "npm run debug",
+  "debug": [
+    "npm",
+    "run",
+    "debug"
+  ],
   "interfaces": {
     "main": 8080
   }
