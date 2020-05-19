@@ -11,9 +11,6 @@
     "architect/addition-service-rest": "latest"
   },
   "language": "java",
-  "api": {
-    "type": "rest"
-  },
   "datastores": {},
   "parameters": {
     "ADDITION_SERVICE_HOST": {
