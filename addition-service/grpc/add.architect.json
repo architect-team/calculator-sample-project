@@ -8,12 +8,6 @@
   ],
   "author": "David Thor",
   "language": "node",
-  "api": {
-    "type": "grpc",
-    "definitions": [
-      "./service.proto"
-    ]
-  },
   "dependencies": {},
   "parameters": {
     "DB_PRIMARY_HOST": {

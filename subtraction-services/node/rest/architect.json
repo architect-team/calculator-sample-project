@@ -9,9 +9,6 @@
   "author": "David Thor",
   "command": "npm start",
   "language": "node",
-  "api": {
-    "type": "rest"
-  },
   "dependencies": {
     "architect/addition-service-grpc": "latest"
   },

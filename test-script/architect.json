@@ -19,8 +19,5 @@
       }
     }
   },
-  "api": {
-    "type": "rest"
-  },
   "language": "node"
 }

@@ -14,12 +14,6 @@
     }
   },
   "datastores": {},
-  "api": {
-    "type": "grpc",
-    "definitions": [
-      "./service.proto"
-    ]
-  },
   "subscriptions": {},
   "description": "Example service performing the division operation",
   "keywords": [
