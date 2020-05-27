@@ -14,7 +14,6 @@
     }
   },
   "datastores": {},
-  "subscriptions": {},
   "description": "Example service performing the division operation",
   "keywords": [
     "architect",
